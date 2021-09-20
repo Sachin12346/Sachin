@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [JustRechargeIt]">
+  <parameter name="Browser" value="Firefox"/>
+  <test name="Registervalid(failed)">
+    <parameter name="Browser" value="Firefox"/>
+    <classes>
+      <class name="registerTS.RegisterWithInvalidData">
+        <methods>
+          <include name="setUpMethod"/>
+        </methods>
+      </class> <!-- registerTS.RegisterWithInvalidData -->
+      <class name="loginTS.LoginWithValidData">
+        <methods>
+          <include name="setUpMethod"/>
+          <include name="tearDown"/>
+          <include name="screenshot"/>
+        </methods>
+      </class> <!-- loginTS.LoginWithValidData -->
+      <class name="loginTS.LoginWithInValidData">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUpMethod"/>
+          <include name="screenshot"/>
+        </methods>
+      </class> <!-- loginTS.LoginWithInValidData -->
+      <class name="registerTS.RegisterWithValidData">
+        <methods>
+          <include name="screenshot"/>
+          <include name="RegisterWithValid" invocation-numbers="0 1"/>
+          <include name="setUpMethod"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- registerTS.RegisterWithValidData -->
+    </classes>
+  </test> <!-- Registervalid(failed) -->
+  <test name="RegisterInvalid(failed)">
+    <parameter name="Browser" value="IE"/>
+    <classes>
+      <class name="loginTS.LoginWithValidData">
+        <methods>
+          <include name="setUpMethod"/>
+          <include name="tearDown"/>
+          <include name="screenshot"/>
+        </methods>
+      </class> <!-- loginTS.LoginWithValidData -->
+      <class name="loginTS.LoginWithInValidData">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUpMethod"/>
+          <include name="screenshot"/>
+        </methods>
+      </class> <!-- loginTS.LoginWithInValidData -->
+      <class name="registerTS.RegisterWithInvalidData">
+        <methods>
+          <include name="setUpMethod"/>
+          <include name="RegisterWithInValid"/>
+        </methods>
+      </class> <!-- registerTS.RegisterWithInvalidData -->
+      <class name="registerTS.RegisterWithValidData">
+        <methods>
+          <include name="screenshot"/>
+          <include name="setUpMethod"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- registerTS.RegisterWithValidData -->
+    </classes>
+  </test> <!-- RegisterInvalid(failed) -->
+  <test name="LoginValid(failed)">
+    <parameter name="Browser" value="chrome"/>
+    <classes>
+      <class name="registerTS.RegisterWithInvalidData">
+        <methods>
+          <include name="setUpMethod"/>
+        </methods>
+      </class> <!-- registerTS.RegisterWithInvalidData -->
+      <class name="loginTS.LoginWithInValidData">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUpMethod"/>
+          <include name="screenshot"/>
+        </methods>
+      </class> <!-- loginTS.LoginWithInValidData -->
+      <class name="loginTS.LoginWithValidData">
+        <methods>
+          <include name="LoginWithValid" invocation-numbers="0 1"/>
+          <include name="setUpMethod"/>
+          <include name="tearDown"/>
+          <include name="screenshot"/>
+        </methods>
+      </class> <!-- loginTS.LoginWithValidData -->
+      <class name="registerTS.RegisterWithValidData">
+        <methods>
+          <include name="screenshot"/>
+          <include name="setUpMethod"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- registerTS.RegisterWithValidData -->
+    </classes>
+  </test> <!-- LoginValid(failed) -->
+</suite> <!-- Failed suite [JustRechargeIt] -->

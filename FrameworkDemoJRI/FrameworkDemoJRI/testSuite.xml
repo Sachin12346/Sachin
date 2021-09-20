@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="JustRechargeIt">
+
+	<test name="Registervalid">
+	<parameter name="Browser" value="Firefox"/>
+		<classes>
+			<class name="registerTS.RegisterWithValidData" />
+		</classes>
+	</test>
+	
+	<test name="RegisterInvalid">
+	<parameter name="Browser" value="IE"/>
+		<classes>
+			<class name="registerTS.RegisterWithInvalidData" />
+		</classes>
+	</test>
+
+	<test name="LoginValid">
+	<parameter name="Browser" value="chrome"/>
+		<classes>
+			<class name="loginTS.LoginWithValidData" />
+		</classes>
+	</test>
+	
+	<test name="LoginInvalid">
+	<parameter name="Browser" value="Firefox"/>
+		<classes>
+			<class name="loginTS.LoginWithInValidData" />
+		</classes>
+	</test>
+
+
+</suite>
