@@ -1,0 +1,114 @@
+The Map interface maps unique keys to values. A key is an object that you use to retrieve a value at a later date.
+Given a key and a value, you can store the value in a Map object. After the value is stored, you can retrieve it by using its key.
+Several methods throw a NoSuchElementException when no items exist in the invoking map.
+A ClassCastException is thrown when an object is incompatible with the elements in a map.
+A NullPointerException is thrown if an attempt is made to use a null object and null is not allowed in the map.
+An UnsupportedOperationException is thrown when an attempt is made to change an unmodifiable map.
+Sr.No.
+Method & Description
+1
+void clear( )
+Removes all key/value pairs from the invoking map.
+2
+boolean containsKey(Object k)
+Returns true if the invoking map contains k as a key. Otherwise, returns false.
+3
+boolean containsValue(Object v)
+Returns true if the map contains v as a value. Otherwise, returns false.
+4
+Set entrySet( )
+Returns a Set that contains the entries in the map. The set contains objects of type Map.Entry. This method provides a set-view of the invoking map.
+5
+boolean equals(Object obj)
+Returns true if obj is a Map and contains the same entries. Otherwise, returns false.
+6
+Object get(Object k)
+Returns the value associated with the key k.
+7
+int hashCode( )
+Returns the hash code for the invoking map.
+8
+boolean isEmpty( )
+Returns true if the invoking map is empty. Otherwise, returns false.
+9
+Set keySet( )
+Returns a Set that contains the keys in the invoking map. This method provides a set-view of the keys in the invoking map.
+10
+Object put(Object k, Object v)
+Puts an entry in the invoking map, overwriting any previous value associated with the key. The key and value are k and v, respectively. Returns null if the key did not already exist. Otherwise, the previous value linked to the key is returned.
+11
+void putAll(Map m)
+Puts all the entries from m into this map.
+12
+Object remove(Object k)
+Removes the entry whose key equals k.
+13
+int size( )
+Returns the number of key/value pairs in the map.
+14
+Collection values( )
+Returns a collection containing the values in the map. This method provides a collection-view of the values in the map.
+
+
+
+HashMap
+HashMap is the implementation of Map, but it doesn't maintain any order.
+LinkedHashMap
+LinkedHashMap is the implementation of Map. It inherits HashMap class. It maintains insertion order.
+TreeMap
+TreeMap is the implementation of Map and SortedMap. It maintains ascending order.
+
+
+V put(Object key, Object value)
+It is used to insert an entry in the map.
+void putAll(Map map)
+It is used to insert the specified map in the map.
+V putIfAbsent(K key, V value)
+It inserts the specified value with the specified key in the map only if it is not already specified. 
+V remove(Object key)
+It is used to delete an entry for the specified key.
+boolean remove(Object key, Object value)
+It removes the specified values with the associated specified keys from the map.
+Set keySet()
+It returns the Set view containing all the keys.
+Set<Map.Entry<K,V>> entrySet()
+It returns the Set view containing all the keys and values.
+void clear()
+It is used to reset the map.
+V compute(K key, BiFunction<? super K,? super V,? extends V> remappingFunction)
+It is used to compute a mapping for the specified key and its current mapped value (or null if there is no current mapping).
+V computeIfAbsent(K key, Function<? super K,? extends V> mappingFunction)
+It is used to compute its value using the given mapping function, if the specified key is not already associated with a value (or is mapped to null), and enters it into this map unless null.
+V computeIfPresent(K key, BiFunction<? super K,? super V,? extends V> remappingFunction)
+It is used to compute a new mapping given the key and its current mapped value if the value for the specified key is present and non-null.
+boolean containsValue(Object value)
+This method returns true if some value equal to the value exists within the map, else return false.
+boolean containsKey(Object key)
+This method returns true if some key equal to the key exists within the map, else return false.
+boolean equals(Object o)
+It is used to compare the specified Object with the Map.
+void forEach(BiConsumer<? super K,? super V> action)
+It performs the given action for each entry in the map until all entries have been processed or the action throws an exception.
+V get(Object key)
+This method returns the object that contains the value associated with the key.
+V getOrDefault(Object key, V defaultValue)
+It returns the value to which the specified key is mapped, or defaultValue if the map contains no mapping for the key.
+int hashCode()
+It returns the hash code value for the Map
+boolean isEmpty()
+This method returns true if the map is empty; returns false if it contains at least one key.
+V merge(K key, V value, BiFunction<? super V,? super V,? extends V> remappingFunction)
+If the specified key is not already associated with a value or is associated with null, associates it with the given non-null value.
+V replace(K key, V value)
+It replaces the specified value for a specified key.
+boolean replace(K key, V oldValue, V newValue)
+It replaces the old value with the new value for a specified key.
+void replaceAll(BiFunction<? super K,? super V,? extends V> function)
+It replaces each entry's value with the result of invoking the given function on that entry until all entries have been processed or the function throws an exception.
+Collection values()
+It returns a collection view of the values contained in the map.
+int size()
+This method returns the number of entries in the map.
+
+
+

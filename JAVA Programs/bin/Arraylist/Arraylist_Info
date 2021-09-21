@@ -1,0 +1,27 @@
+Ordered – Elements in arraylist preserve their ordering which is by default the order in which they were added to the list.
+Index based – Elements can be randomly accessed using index positions. Index start with '0'.
+Dynamic resizing – ArrayList grows dynamically when more elements needs to be added than it’s current size.
+Non synchronized – ArrayList is not synchronized, by default. Programmer needs to use synchronized keyword appropiately or simply use Vector class.
+Duplicates allowed – We can add duplicate elements in arraylist. It is not possible in sets.
+
+
+ArrayList add() method example
+ArrayList addAll() method example
+ArrayList clear() method example
+ArrayList clone() – How to clone an ArrayList
+ArrayList contains() method example
+ArrayList ensureCapacity() method example
+ArrayList forEach() method example
+ArrayList get() method example
+ArrayList indexOf() method example
+ArrayList lastIndexOf() method example
+ArrayList listIterator() method example
+ArrayList remove() method example
+ArrayList removeAll() method example
+ArrayList retainAll() method example
+ArrayList replaceAll() method example
+ArrayList removeIf() method example
+ArrayList sort() method example
+ArrayList spliterator() method example
+ArrayList subList() method example
+ArrayList toArray() method example

@@ -1,0 +1,261 @@
+Wrapper Classes
+
+Each of Java's eight primitive data types has a class dedicated to it. These are known as wrapper
+classes, because they "wrap" the primitive data type into an object of that class. So, there is an
+Integer class that holds an int variable, there is a Double class that holds a double
+variable, and so on. The wrapper classes are part of the java.lang package, which is imported
+by default into all Java programs.
+Wrapper classes allow primitive data types to be accessed as objects. They are one per primitive type: Boolean, Byte, Character, Double, Float, Integer, Long and Short. Wrapper classes make the primitive type data to act as objects.
+Why do we need wrapper classes?
+It is sometimes easier to deal with primitives as objects. Moreover most of the collection classes store objects and not primitive data types. And also the wrapper classes provide many utility methods also. Because of these resons we need wrapper classes. And since we create instances of these classes we can store them in any of the collection classes and pass them around as a collection. Also we can pass them around as method parameters where a method expects an object.
+
+int x = Integer.parseInt("1234");
+int num=1234;
+String str=Integer.toString(num);
+   
+
+
+
+
+
+
+LIST OF WRAPPER CLASS
+
+
+Primitive type
+Wrapper class
+1
+boolean
+     java.lang.Boolean
+2
+byte
+java.lang.Byte
+3
+char
+java.lang.Character
+4
+double
+     java.lang.Double
+5
+float
+java.lang.Float
+6
+int
+java.lang.Integer
+7
+long
+java.lang.Long
+8
+short
+java.lang.Short
+
+
+Class Character
+The Character class wraps a value of the primitive type char in an object. An object of type Character contains a single field whose type is char.
+
+Character Methods:
+(1)
+
+isLetter()
+
+Determines whether the specified char value is a letter.
+
+Syntax:
+boolean isLetter(char ch)
+
+Returns:
+true if the character is a letter; false otherwise.
+
+Example:
+public class Test {
+
+   public static void main(String args[]) {
+      System.out.println(Character.isLetter('c'));
+      System.out.println(Character.isLetter('5'));
+   }
+}
+
+This produces following result:
+true
+false
+
+(2)
+
+
+
+isDigit()
+Determines whether the specified char value is a digit.
+
+Syntax:
+boolean isDigit(char ch)
+
+Returns:
+true if the character is a digit; false otherwise.
+
+Example:
+public class Test {
+
+   public static void main(String args[]) {
+      System.out.println(Character.isDigit('c'));
+      System.out.println(Character.isDigit('5'));
+   }
+}
+
+This produces following result:
+false
+true
+
+
+(3)
+
+
+isWhitespace()
+Determines whether the specified char value is white space.
+
+Syntax:
+boolean isWhitespace(char ch)
+
+Returns:
+true if the character is a Java whitespace character; false otherwise.
+Example:
+public class Test{
+
+   public static void main(String args[]){
+      System.out.println(Character.isWhitespace('c'));
+      System.out.println(Character.isWhitespace(' '));
+      System.out.println(Character.isWhitespace('\n'));
+      System.out.println(Character.isWhitespace('\t'));
+   }
+}
+This produces following result:
+false
+true
+true
+true
+
+(4)
+
+
+isUpperCase()
+Determines whether the specified char value is uppercase.
+Syntax:
+boolean isUpperCase(char ch)
+
+Returns:
+true if the character is uppercase; false otherwise.
+
+Example:
+public class Test{
+
+   public static void main(String args[]){
+      System.out.println( Character.isUpperCase('c'));
+      System.out.println( Character.isUpperCase('C'));
+      System.out.println( Character.isUpperCase('\n'));
+      System.out.println( Character.isUpperCase('\t'));
+   }
+}
+This produces following result:
+false
+true
+false
+false
+
+(5)
+
+
+isLowerCase()
+Determines whether the specified char value is lowercase.
+
+Syntax:
+boolean isLowerCase(char ch)
+
+Returns:
+true if the character is lowercase; false otherwise.
+Example:
+public class Test{
+
+   public static void main(String args[]){
+      System.out.println(Character.isLowerCase('c'));
+      System.out.println(Character.isLowerCase('C'));
+      System.out.println(Character.isLowerCase('\n'));
+      System.out.println(Character.isLowerCase('\t'));
+   }
+}
+This produces following result:
+true
+false
+false
+false
+
+
+(6)
+
+
+toUpperCase()
+Returns the uppercase form of the specified char value.
+
+Syntax:
+char toUpperCase(char ch)
+
+Returns:
+the uppercase equivalent of the character, if any; otherwise, the character itself.
+
+Example:
+public class Test{
+
+   public static void main(String args[]){
+      System.out.println(Character.toUpperCase('c'));
+      System.out.println(Character.toUpperCase('C'));
+   }
+}
+This produces following result:
+C
+C
+
+(7)
+
+
+toLowerCase()
+Returns the lowercase form of the specified char value.
+
+
+Syntax:
+char toLowerCase(char ch)
+
+Returns:
+the lowercase equivalent of the character, if any; otherwise, the character itself.
+Example:
+public class Test{
+
+   public static void main(String args[]){
+      System.out.println(Character.toLowerCase('c'));
+      System.out.println(Character.toLowerCase('C'));
+   }
+}
+This produces following result:
+c
+c
+
+(8)
+
+
+toString()
+Returns a String object representing the specified character value that is, a one-character string.
+Syntax:
+String toString(char ch)
+
+Returns:
+the string representation of the specified char
+Example:
+public class Test{
+
+   public static void main(String args[]){
+      String str;
+      Char ch=’A’;
+      str=Character.toString(ch);
+      System.out.println(str);
+   }
+}
+This produces following result:
+A
+

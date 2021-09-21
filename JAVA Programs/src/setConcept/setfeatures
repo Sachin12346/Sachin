@@ -1,0 +1,36 @@
+A Set is a Collection that cannot contain duplicate elements.
+ It models the mathematical set abstraction.
+ The Set interface contains only methods inherited from Collection and 
+ 	adds the restriction that duplicate elements are prohibited
+ 	
+ 	
+Set also adds a stronger contract on the behavior of the equals and hashCode operations, 
+allowing Set instances to be compared meaningfully even if their implementation types differ
+ 	
+ 	
+ 	1
+add( )
+Adds an object to the collection.
+2
+clear( )
+Removes all objects from the collection.
+3
+contains( )
+Returns true if a specified object is an element within the collection.
+4
+isEmpty( )
+Returns true if the collection has no elements.
+5
+iterator( )
+Returns an Iterator object for the collection, which may be used to retrieve an object.
+6
+remove( )
+Removes a specified object from the collection.
+7
+size( )
+Returns the number of elements in the collection.
+ 	
+ 	
+ 	
+ 	
+ 	

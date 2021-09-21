@@ -1,0 +1,577 @@
+Abstract class
+
+Certain methods in the super class do not contain any logic and need to be overridden by the subclass. In such situations, the method in the super class should be declared by using the keyword abstract. 
+
+The subclass provides the implementation details of such abstract methods. The super class only provides the name and signatures of the method. Thus, it is the responsibility of the subclass to override it.
+
+The syntax is:
+
+abstract type methodname(parameter list);
+
+No method body is present. 
+
+Any class that contains one or more abstract methods should also be declared abstract. To declare a class as abstract, the class keyword will be preceded by the abstract keyword. Abstract classes cannot be instantiated. Constructors and static class methods cannot be declared as abstract. 
+Any subclass of an abstract class must implements all the abstract methods declared in the super class.
+
+Abstract classes cannot have objects but they can be used to create object references because java’s runtime polymorphism is implemented through the use of super class references. Thus, an object can be used to create a reference to an abstract class that can point to a subclass object.
+
+
+Abstract Class
+Use the abstract keyword to declare a class abstract. The keyword appears in the class declaration somewhere before the class keyword.
+The syntax is:
+
+public abstract class Employee
+
+Abstract Methods
+If you want a class to contain a particular method but you want the actual implementation of that method to be determined by child classes, you can declare the method in the parent class as abstract.
+The abstract keyword is also used to declare a method as abstract.An abstract methods consist of a method signature, but no method body.
+The syntax is:
+
+abstract type methodname(parameter list);
+
+
+Declaring a method as abstract has two results
+
+    • The class must also be declared abstract. If a class contains an abstract method, the class must be abstract as well.
+
+    • Any child class must either override the abstract method or declare itself abstract.
+A child class that inherits an abstract method must override it. If they do not, they must be abstract, and any of their children must override it.
+
+Important Point about abstract classes
+    • Abstract class may contain static data.
+
+    • Any class with an abstract method is automatically abstract itself, and must be declared as such.
+
+    • A class may be declared abstract even if it has no abstract methods. This prevents it from being instantiated.
+
+    • A compile-time error occurs if a method declaration that contains the keyword abstract also contains any one of the keywords private, static ,final, native or synchronized.
+
+
+Example1
+abstract class Figure
+{
+	double dim1;
+	double dim2;
+	Figure(double a, double b)
+	{
+		dim1 = a;
+		dim2 = b;
+    }
+	abstract double area();//abstract method
+}
+class Rectangle extends Figure
+{
+	Rectangle(double a, double b)
+	{
+		super(a, b);
+	}
+	// override area for rectangle
+	double area()
+	{
+	System.out.println("Inside Area for Rectangle.");
+	return dim1 * dim2;
+	}
+}
+
+class Triangle extends Figure
+{
+	Triangle(double a, double b)
+	{
+		super(a, b);
+	}	
+	//override area for right triangle
+	double area()
+	{
+	System.out.println("Inside Area for Triangle.");
+	return dim1 * dim2 / 2;
+	}
+}
+class Demo5
+{
+	public static void main(String args[])
+	{
+	// Figure f = new Figure(10, 10); // illegal now
+
+	Rectangle r = new Rectangle(9, 5);
+	Triangle t = new Triangle(10, 8);
+	Figure figref; // this is OK, no object is created
+	figref = r;
+	System.out.println("Area is " + figref.area());
+	figref = t;
+	System.out.println("Area is " + figref.area());
+	}
+
+}
+
+Example2
+abstract class BankInfo
+{
+	final String bankname="Kukreti Reserve Bank Of India";
+	protected String cname,address,mobno,email;
+	protected double balance;
+	protected int cacno;
+public void setCustomerInfo(int cacno,String cname,String
+                     address,String mobno,String email,double balance)
+
+	{
+		this.cacno=cacno;
+		this.cname=cname;
+		this.address=address;
+		this.mobno=mobno;
+		this.email=email;
+		this.balance=balance;
+	}
+	
+	public void showCustomerInfo()
+	{
+		
+		System.out.println("Bank Name= "+bankname);
+		System.out.println("Name= "+cname);
+		System.out.println("Acount Number= "+cacno);
+		System.out.println("Address= "+address);
+		System.out.println("Mobile No= "+mobno);
+		System.out.println("EmailId= "+email);
+		System.out.println("Balance Amount= "+balance);
+	}
+	
+	public abstract void depositAmount(double amt);
+	public abstract void withDrawAmount(double amt);
+}
+
+class Transaction extends BankInfo
+{
+	
+	public void depositAmount(double amt)
+	{
+		
+		balance=balance+amt;
+		
+	}
+	public void withDrawAmount(double amt)
+	{
+		if(balance>amt)
+		{
+			balance=balance-amt;
+			
+		}
+	}
+
+    double getBalance()
+    {
+    	return balance;
+       	
+    }
+  }
+
+public class Demo99 {
+
+	public static void main(String[] args)
+	{
+
+		Transaction ob=new Transaction();
+		ob.setCustomerInfo(11207,"Vedik Kukreti","DehraDun","222272221","vedikkukreti@gmail.com",5000);
+		ob.showCustomerInfo();
+System.out.println("========After Deposit Transaction==========");
+		ob.depositAmount(7000);
+		System.out.println("Balance will be ="+ob.getBalance());
+System.out.println("========After WithDraw Transaction==========");
+		ob.withDrawAmount(2000);
+		System.out.println("Balance will be ="+ob.getBalance());
+		
+	}
+}
+Output will be
+
+Bank Name= Kukreti Reserve Bank Of India
+Name= Vedik Kukreti
+Acount Number= 11207
+Address= DehraDun
+Mobile No= 222272221
+EmailId= vedikkukreti@gmail.com
+Balance Amount= 5000.0
+========After Deposit Transaction==========
+Balance will be =12000.0
+========After WithDraw Transaction==========
+Balance will be =10000.0
+
+
+
+Java - Interfaces
+An interface is a collection of abstract methods. A class implements an interface, thereby inheriting the abstract methods of the interface.
+An interface is not a class. Writing an interface is similar to writing a class, but they are two different concepts. A class describes the attributes and behaviors of an object. An interface contains behaviors that a class implements.
+Unless the class that implements the interface is abstract, all the methods of the interface need to be defined in the class.
+An interface is similar to a class in the following ways:
+    • An interface can contain any number of methods.
+    • An interface is written in a file with a .java extension, with the name of the interface matching the name of the file.
+    • The bytecode of an interface appears in a .class file.
+    • Interfaces appear in packages, and their corresponding bytecode file must be in a directory structure that matches the package name.
+However, an interface is different from a class in several ways, including:
+    • You cannot instantiate an interface. 
+    • An interface does not contain any constructors.
+    • All of the methods in an interface are abstract.
+    • An interface cannot contain instance fields. The only fields that can appear in an interface must be declared both static and final.
+    • An interface is not extended by a class; it is implemented by a class.
+    • An interface can extend multiple interfaces.
+Declaring Interfaces:
+The interface keyword is used to declare an interface. Here is a simple example to declare an interface:
+Example:
+Let us look at an example that depicts encapsulation:
+public interface NameOfInterface
+{
+   //Any number of final, static fields
+   //Any number of abstract method declarations
+}
+Interfaces have the following properties:
+    • An interface is implicitly abstract. You do not need to use the abstract keyword when declaring an interface.
+
+    • Each method in an interface is also implicitly abstract, so the abstract keyword is not needed.
+
+    • Methods in an interface are implicitly public.
+Implementing Interfaces:
+When a class implements an interface, you can think of the class as signing a contract, agreeing to perform the specific behaviors of the interface. If a class does not perform all the behaviors of the interface, the class must declare itself as abstract.
+A class uses the implements keyword to implement an interface. The implements keyword appears in the class declaration following the extends portion of the declaration.
+
+When overriding methods defined in interfaces there are several rules to be followed:
+    • Checked exceptions should not be declared on implementation methods other than the ones declared by the interface method or subclasses of those declared by the interface method.
+
+    • The signature of the interface method and the same return type or subtype should be maintained when overriding the methods.
+
+    • An implementation class itself can be abstract and if so interface methods need not be implemented.
+When implementation interfaces there are several rules:
+    • A class can implement more than one interface at a time.
+
+    • A class can extend only one class, but implement many interface. 
+
+    • An interface can extend another interface, similarly to the way that a class can extend another class.
+
+Extending Interfaces:
+An interface can extend another interface, similarly to the way that a class can extend another class. The extends keyword is used to extend an interface, and the child interface inherits the methods of the parent interface.
+
+
+Example1 Class Rectangle implements FigureData interface 
+
+interface FigureData
+{
+	double area();//abstract method
+	
+}
+class Rectangle implements FigureData
+{
+	double dim1,dim2;
+	Rectangle(double a, double b)
+	{
+		dim1=a;
+		dim2=b;
+	}
+	
+	
+	public double area()
+	{
+return dim1 * dim2;
+	}
+
+}
+
+class Demo5
+{
+	public static void main(String args[])
+	{
+	
+		Rectangle r = new Rectangle(9, 5);
+		double a=r.area();
+		System.out.println("Area= "+a);
+	
+	}
+}
+
+Output will Be
+Area= 45.0
+
+
+
+Example2 Class Rectangle extends Figure class and  implements FigureData interface 
+
+interface FigureData
+{
+	double area();//abstract method
+	
+}
+
+
+class Figure
+{
+	double dim1;
+	double dim2;
+	Figure(double a, double b)
+	{
+		dim1 = a;
+		dim2 = b;
+    }
+	
+}
+
+class Rectangle extends Figure implements FigureData
+{
+	Rectangle(double a, double b)
+	{
+		super(a,b);
+	
+	}
+	
+	public double area()
+	{
+		
+return dim1 * dim2;
+	}
+}
+
+class Demo5
+{
+	public static void main(String args[])
+	{
+	
+		Rectangle r = new Rectangle(9, 5);
+		double a=r.area();
+		System.out.println("Area= "+a);
+	
+	}
+}
+Example3 interface can be used as a Reference
+
+class Demo5
+{
+	public static void main(String args[])
+	{
+	
+		FigureData ob;
+		
+		Rectangle r = new Rectangle(9, 5);
+		
+		ob=r;
+		double a=ob.area();
+		System.out.println("Area= "+a);
+	
+	}
+}
+
+
+Example4 implements more than one interfaces
+Class Rectangle extends Figure class and implements FiguareData interface  and CalculateData interface
+
+interface FigureData
+{
+	double area();//abstract method
+		
+}
+
+interface CalculateData
+{
+	void setValue(int a ,int b);
+	int cal();
+}
+
+class Figure
+{
+	double dim1;
+	double dim2;
+	Figure(double a, double b)
+	{
+		dim1 = a;
+		dim2 = b;
+    }
+	
+}
+
+class Rectangle extends Figure implements FigureData,CalculateData
+{
+    int n1,n2;
+	Rectangle(double a, double b)
+	{
+		super(a,b);
+	
+	}
+	public void setValue(int a,int b)
+	{
+		n1=a;
+		n2=b;
+		
+	}
+	public int cal()
+	{
+		return n1+n2;
+	}
+	public double area()
+	{
+		return dim1 * dim2;
+	}
+}
+
+class Demo5
+{
+	public static void main(String args[])
+	{
+	
+		Rectangle ob = new Rectangle(9, 5);
+		double a=ob.area();
+		System.out.println("Area= "+a);
+		ob.setValue(50,60);
+		int res=ob.cal();
+		System.out.println("sum= "+res);
+	
+	}
+}
+
+Example5 interface extends another interface
+
+interface Exampleone
+{
+	void showResult();
+	
+}
+
+interface Exampletwo extends Exampleone
+{
+	
+	int calculate();
+}
+
+class InterDemo implements Exampletwo
+{
+	
+	int n1,n2,res;
+	InterDemo(int a,int b)
+	{
+		n1=a;
+		n2=b;
+	}
+	
+	public void showResult()
+	{
+		System.out.println("N1= "+n1);
+		System.out.println("N2= "+n2);
+		System.out.println("Output= "+calculate());
+		
+		
+	}
+	public int calculate()
+	{
+		return n1+n2;
+	}	
+}
+
+public class Demo99 {
+
+	public static void main(String[] args)
+	{
+
+		InterDemo ob=new InterDemo(50,60);
+		ob.showResult();
+		
+	}
+}
+Output will be
+N1= 50
+N2= 60
+Output= 110
+
+Example6 Class Transaction extends Bankinfo class and  implements Bank interface 
+interface Bank
+{
+	String bankname="Kukreti Reserve Bank Of India";
+	void depositAmount(double amt);
+	void withDrawAmount(double amt);
+	
+}
+
+class BankInfo
+{
+	protected String cname,address,mobno,email;
+	protected double balance;
+	protected int cacno;
+	public void setCustomerInfo(int cacno,String cname,String
+                      address,String mobno,String email,double balance)
+
+	{
+		this.cacno=cacno;
+		this.cname=cname;
+		this.address=address;
+		this.mobno=mobno;
+		this.email=email;
+		this.balance=balance;
+	}
+	
+	public void showCustomerInfo()
+	{
+		
+		System.out.println("Name "+cname);
+		System.out.println("Acount Number "+cacno);
+		System.out.println("Address "+address);
+		System.out.println("Mobile No "+mobno);
+		System.out.println("EmailId "+email);
+		System.out.println("Balance Amount "+balance);
+	}
+}
+
+class Transaction extends BankInfo implements Bank
+{
+	
+	public void depositAmount(double amt)
+	{
+		
+		balance=balance+amt;
+		
+	}
+	public void withDrawAmount(double amt)
+	{
+		if(balance>amt)
+		{
+			balance=balance-amt;
+			
+		}
+	}
+
+    double getBalance()
+    {
+    	return balance;
+       	
+    }
+    void showBankName()
+    {
+      	System.out.println("Bank Name= "+bankname);
+    }
+}
+
+public class Demo99
+{
+
+ public static void main(String[] args)
+ {
+
+		Transaction ob=new Transaction();
+		ob.setCustomerInfo(11207,"Vedik Kukreti","DehraDun","222272221","vedikkukreti@gmail.com",5000);
+		ob.showBankName();
+		ob.showCustomerInfo();
+System.out.println("========After Deposit Transaction==========");
+		ob.depositAmount(7000);
+		System.out.println("Balance will be ="+ob.getBalance());
+System.out.println("========After WithDraw Transaction==========");
+		ob.withDrawAmount(2000);
+		System.out.println("Balance will be ="+ob.getBalance());
+		
+	}
+}
+
+
+Output Will Be
+
+Bank Name= Kukreti Reserve Bank Of India
+Name Vedik Kukreti
+Acount Number 11207
+Address DehraDun
+Mobile No 222272221
+EmailId vedikkukreti@gmail.com
+Balance Amount 5000.0
+========After Deposit Transaction==========
+Balance will be =12000.0
+========After WithDraw Transaction==========
+Balance will be =10000.0
